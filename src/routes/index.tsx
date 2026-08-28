@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import phishguardImg from "@/assets/phishguard.jpg";
 import lconnectImg from "@/assets/lconnect.jpg";
-import profileAsset from "@/assets/profile.jpg.asset.json";
+import profileImg from "@/assets/profile.jpg";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
@@ -218,7 +218,7 @@ function Index() {
           <div className="-mt-16 flex flex-col gap-6 md:-mt-20 md:flex-row md:items-end md:justify-between">
             <div className="flex items-end gap-5">
               <img
-                src={profileAsset.url}
+                src={profileImg}
                 alt="Siddharth Sharma"
                 className="size-28 shrink-0 rounded-full border-4 border-background object-cover shadow-lift md:size-36"
                 width={144}
@@ -319,7 +319,7 @@ function Index() {
                     <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-soft transition-shadow hover:shadow-lift">
                       <div className="flex items-center gap-3 px-6 pt-6">
                         <img
-                          src={profileAsset.url}
+                          src={profileImg}
                           alt="Siddharth Sharma"
                           className="size-10 rounded-full object-cover"
                           width={40}
