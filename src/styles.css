@@ -1,0 +1,134 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — "Creator Page".
+ * Warm paper canvas, coral action color, soft rounded cards, generous type.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 20px);
+  --radius-4xl: calc(var(--radius) + 28px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-surface: var(--surface);
+  --color-coral: var(--coral);
+  --color-ink: var(--ink);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.98 0.006 85);
+  --foreground: oklch(0.18 0.01 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 60);
+  --primary: oklch(0.63 0.21 22);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.008 85);
+  --secondary-foreground: oklch(0.18 0.01 60);
+  --muted: oklch(0.95 0.008 85);
+  --muted-foreground: oklch(0.50 0.015 60);
+  --accent: oklch(0.63 0.21 22);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.90 0.008 85);
+  --input: oklch(0.90 0.008 85);
+  --ring: oklch(0.63 0.21 22);
+  --surface: oklch(0.96 0.008 85);
+  --coral: oklch(0.63 0.21 22);
+  --ink: oklch(0.18 0.01 60);
+  --shadow-soft: 0 1px 2px oklch(0.2 0.01 60 / 0.04), 0 8px 24px oklch(0.2 0.01 60 / 0.06);
+  --shadow-lift: 0 2px 6px oklch(0.2 0.01 60 / 0.06), 0 18px 40px oklch(0.2 0.01 60 / 0.10);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-coral) 25%, transparent);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+@utility fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@utility banner-mesh {
+  background:
+    radial-gradient(circle at 12% 25%, color-mix(in oklab, var(--color-coral) 55%, transparent) 0%, transparent 45%),
+    radial-gradient(circle at 78% 15%, oklch(0.85 0.13 60 / 0.75) 0%, transparent 50%),
+    radial-gradient(circle at 60% 90%, oklch(0.80 0.10 200 / 0.55) 0%, transparent 55%),
+    linear-gradient(120deg, oklch(0.94 0.02 85), oklch(0.90 0.03 40));
+}
+
+@utility dot-grid {
+  background-image: radial-gradient(color-mix(in oklab, var(--color-ink) 16%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
